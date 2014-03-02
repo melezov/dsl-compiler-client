@@ -6,6 +6,8 @@ trait Dependencies {
 
   val jodaTime = "joda-time" % "joda-time" % "2.3"
   val jodaConvert = "org.joda" % "joda-convert" % "1.5"
+  
+  val jvmJson = "io.jvm" % "jvm-json" % "0.0.1-SNAPSHOT"
 
   val dslHttp = "com.dslplatform" % "dsl-client-http-apache" % "0.4.14"
 }

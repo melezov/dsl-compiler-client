@@ -76,6 +76,20 @@ public class Project implements java.io.Serializable, AggregateRoot {
                 : CreatedAt;
     }
 
+    public static Project buildInternal(
+            final ServiceLocator _serviceLocator,
+            final String URI,
+            final java.util.UUID ID,
+            final String Nick,
+            final org.joda.time.DateTime CreatedAt) {
+        return new Project(
+                _serviceLocator,
+                URI,
+                ID,
+                Nick,
+                CreatedAt);
+    }
+
     private java.util.UUID ID;
 
     @JsonProperty("ID")

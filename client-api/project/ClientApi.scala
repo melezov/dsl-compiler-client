@@ -23,8 +23,10 @@ object ClientApi extends ClientApi {
     // model
     slf4j
   , slf4jSimple
+//  , jvmJson
   ) settings (
     unmanagedSourceDirectories in Compile += sourceDirectory.value / "interface" / "java",
+    unmanagedSourceDirectories in Compile += sourceDirectory.value / "serialization" / "java",
     unmanagedSourceDirectories in Compile += sourceDirectory.value / "service" / "java",
     unmanagedSourceDirectories in Compile += sourceDirectory.value / "model" / "java",
     unmanagedSourceDirectories in Compile += sourceDirectory.value / "config" / "java",
