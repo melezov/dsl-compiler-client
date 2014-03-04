@@ -28,8 +28,7 @@ module Client
     String  ProjectName;
   }
 
-  value DatabaseConnection
-  {
+  value DatabaseConnection {
     String  Server;
     Int     Port;
     String  Database;

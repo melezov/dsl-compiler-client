@@ -17,6 +17,7 @@ object ClientApi extends ClientApi {
     dslHttp
   ) settings (
     unmanagedSourceDirectories in Compile += sourceDirectory.value / "generated" / "java"
+  , unmanagedSourceDirectories in Compile += sourceDirectory.value / "pending" / "java"
   )
 
   lazy val interface = clientApiProject("Interface") inject (
@@ -25,11 +26,9 @@ object ClientApi extends ClientApi {
   , slf4jSimple
 //  , jvmJson
   ) settings (
-    unmanagedSourceDirectories in Compile += sourceDirectory.value / "interface" / "java",
-    unmanagedSourceDirectories in Compile += sourceDirectory.value / "serialization" / "java",
-    unmanagedSourceDirectories in Compile += sourceDirectory.value / "service" / "java",
-    unmanagedSourceDirectories in Compile += sourceDirectory.value / "model" / "java",
-    unmanagedSourceDirectories in Compile += sourceDirectory.value / "config" / "java",
-    unmanagedSourceDirectories in Compile += sourceDirectory.value / "launcher" / "java"
+    unmanagedSourceDirectories in Compile += sourceDirectory.value / "interface" / "java"
+  , unmanagedSourceDirectories in Compile += sourceDirectory.value / "service" / "java"
+  , unmanagedSourceDirectories in Compile += sourceDirectory.value / "config" / "java"
+  , unmanagedSourceDirectories in Compile += sourceDirectory.value / "launcher" / "java"
   ) dependsOn(model)
 }

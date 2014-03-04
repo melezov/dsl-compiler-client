@@ -2,7 +2,6 @@ package com.dslplatform.compiler.client.api.model.Client;
 
 import com.dslplatform.patterns.*;
 import com.dslplatform.client.*;
-import com.fasterxml.jackson.annotation.*;
 
 public class Project implements java.io.Serializable, AggregateRoot {
     public Project() {
@@ -19,7 +18,6 @@ public class Project implements java.io.Serializable, AggregateRoot {
 
     private String URI;
 
-    @JsonProperty("URI")
     public String getURI() {
         return this.URI;
     }
@@ -58,13 +56,12 @@ public class Project implements java.io.Serializable, AggregateRoot {
         setCreatedAt(CreatedAt);
     }
 
-    @JsonCreator
     private Project(
-            @JacksonInject("_serviceLocator") final ServiceLocator _serviceLocator,
-            @JsonProperty("URI") final String URI,
-            @JsonProperty("ID") final java.util.UUID ID,
-            @JsonProperty("Nick") final String Nick,
-            @JsonProperty("CreatedAt") final org.joda.time.DateTime CreatedAt) {
+            final ServiceLocator _serviceLocator,
+            final String URI,
+            final java.util.UUID ID,
+            final String Nick,
+            final org.joda.time.DateTime CreatedAt) {
         this._serviceLocator = _serviceLocator;
         this._domainProxy = _serviceLocator.resolve(DomainProxy.class);
         this._crudProxy = _serviceLocator.resolve(CrudProxy.class);
@@ -76,24 +73,17 @@ public class Project implements java.io.Serializable, AggregateRoot {
                 : CreatedAt;
     }
 
-    public static Project buildInternal(
+    public static Project _buildInternal(
             final ServiceLocator _serviceLocator,
             final String URI,
             final java.util.UUID ID,
             final String Nick,
             final org.joda.time.DateTime CreatedAt) {
-        return new Project(
-                _serviceLocator,
-                URI,
-                ID,
-                Nick,
-                CreatedAt);
+        return new Project(_serviceLocator, URI, ID, Nick, CreatedAt);
     }
 
     private java.util.UUID ID;
 
-    @JsonProperty("ID")
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public java.util.UUID getID() {
         return ID;
     }
@@ -278,7 +268,6 @@ public class Project implements java.io.Serializable, AggregateRoot {
 
     private String Nick;
 
-    @JsonProperty("Nick")
     public String getNick() {
         return Nick;
     }
@@ -291,8 +280,6 @@ public class Project implements java.io.Serializable, AggregateRoot {
 
     private org.joda.time.DateTime CreatedAt;
 
-    @JsonProperty("CreatedAt")
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public org.joda.time.DateTime getCreatedAt() {
         return CreatedAt;
     }
@@ -324,8 +311,6 @@ public class Project implements java.io.Serializable, AggregateRoot {
 
         private String User;
 
-        @com.fasterxml.jackson.annotation.JsonProperty("User")
-        @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
         public String getUser() {
             return User;
         }
@@ -341,8 +326,6 @@ public class Project implements java.io.Serializable, AggregateRoot {
 
         private String Name;
 
-        @com.fasterxml.jackson.annotation.JsonProperty("Name")
-        @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
         public String getName() {
             return Name;
         }
@@ -419,8 +402,6 @@ public class Project implements java.io.Serializable, AggregateRoot {
 
         private String User;
 
-        @com.fasterxml.jackson.annotation.JsonProperty("User")
-        @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
         public String getUser() {
             return User;
         }

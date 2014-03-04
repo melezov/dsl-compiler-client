@@ -1,20 +1,19 @@
-//package com.dslplatform.compiler.client.api.model.Client.repositories;
-//
-//import java.io.IOException;
-//import java.util.AbstractMap;
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.concurrent.ExecutionException;
-//import java.util.logging.Logger;
-//
-//import com.dslplatform.compiler.client.api.model.Client.Project;
-//import com.dslplatform.compiler.client.api.model.Client.ProjectDetails;
-//
-//public class ProjectRepository {
+package com.dslplatform.compiler.client.api.model.Client.repositories;
+
+import java.io.IOException;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
+
+import com.dslplatform.compiler.client.api.model.Client.Project;
+import com.dslplatform.compiler.client.api.model.Client.ProjectDetails;
+
+public class ProjectRepository {
 //    private final Logger logger;
-//    private final DomainProxy domainProxy;
 //    private final String username;
 //
 //    public ProjectRepository(final Logger logger, final DomainProxy domainProxy, final String username) {
@@ -69,4 +68,4 @@
 //            throw new IOException(e);
 //        }
 //    }
-//}
+}
