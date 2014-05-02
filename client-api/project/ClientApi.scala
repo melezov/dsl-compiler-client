@@ -15,6 +15,17 @@ object ClientApi extends Build with Default {
 
   lazy val util = clientApiProject("Util") inject(
     slf4j
+  , commonsIo
+  , commonsCodec
+  )
+
+  lazy val diff = clientApiProject("Diff") inject(
+    util
+  )
+  
+  lazy val cache = clientApiProject("Cache") inject(
+    slf4j
+  , commonsIo
   )
 
   lazy val params = clientApiProject("Params")

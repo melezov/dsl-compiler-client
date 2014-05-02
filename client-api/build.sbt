@@ -23,4 +23,4 @@ credentials in ThisBuild ++= {
   if (creds.exists) Some(Credentials(creds)) else None
 }.toSeq
 
-packagedArtifacts                 := Map.empty
+packagedArtifacts := Map.empty

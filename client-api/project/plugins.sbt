@@ -6,7 +6,7 @@
 // | See also: Scala IDE downloads (http://download.scala-ide.org/)                      |
 // +-------------------------------------------------------------------------------------+
 
-addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.4.0")
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.5.0")
 
 // +-------------------------------------------------------------------------------------+
 // | Dependency graph SBT plugin (https://github.com/jrudolph/sbt-dependency-graph)      |
@@ -22,5 +22,9 @@ addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
 
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.10.2")
 
+// +-------------------------------------------------------------------------------------+
+// | SBT Scripted plugin (http://eed3si9n.com/testing-sbt-plugins)                       |
+// | Allows for easy testing of SBT plugins                                              |
+// +-------------------------------------------------------------------------------------+
 
-libraryDependencies <+= sbtVersion("org.scala-sbt" % "scripted-plugin" % _)
+libraryDependencies += "org.scala-sbt" % "scripted-plugin" % sbtVersion.value
