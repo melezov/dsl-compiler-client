@@ -49,8 +49,7 @@ public enum Dependencies implements CompileParameter {
 	}
 
 	@Override
-	public void run(final Context context) {
-	}
+	public void run(final Context context) {}
 
 	@Override
 	public String getShortDescription() {

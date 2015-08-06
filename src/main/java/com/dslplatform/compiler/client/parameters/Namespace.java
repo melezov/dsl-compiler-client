@@ -17,8 +17,7 @@ public enum Namespace implements CompileParameter {
 	}
 
 	@Override
-	public void run(final Context context) {
-	}
+	public void run(final Context context) {}
 
 	@Override
 	public String getShortDescription() {
@@ -31,7 +30,7 @@ public enum Namespace implements CompileParameter {
 				"\n" +
 				"\n" +
 				"Examples:\n" +
-				"	com.company.project\n" +
-				"	Shipping.Model";
+				"\tcom.company.project\n" +
+				"\tShipping.Model";
 	}
 }

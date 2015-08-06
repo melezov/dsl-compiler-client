@@ -166,8 +166,7 @@ public enum JavaPath implements CompileParameter {
 	}
 
 	@Override
-	public void run(final Context context) {
-	}
+	public void run(final Context context) {}
 
 	@Override
 	public String getShortDescription() {
@@ -183,7 +182,7 @@ public enum JavaPath implements CompileParameter {
 				"JDK_HOME and JAVA_HOME environment variables will be checked for Java tools.\n" +
 				"\n" +
 				"Example:\n" +
-				"	/var/user/java-8\n" +
+				"\t/var/user/java-8\n" +
 				"where /var/user/java-8/javac and /var/user/java-8/jar exists";
 	}
 }

@@ -52,8 +52,7 @@ public class Main {
 				if (close != null) {
 					close.invoke(ucl);
 				}
-			} catch (Exception ignore) {
-			}
+			} catch (Exception ignore) {}
 		}
 		return parameters;
 	}

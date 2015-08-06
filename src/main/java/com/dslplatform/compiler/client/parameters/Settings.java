@@ -76,8 +76,8 @@ public enum Settings implements CompileParameter, ParameterParser {
 			context.show(o.value + " - " + o.description);
 		}
 		context.show("Example usages:");
-		context.show("		settings=active-record,joda-time,jackson");
-		context.show("		active-record manual-json");
+		context.show("\tsettings=active-record,joda-time,jackson");
+		context.show("\tactive-record manual-json");
 	}
 
 	@Override
@@ -132,8 +132,7 @@ public enum Settings implements CompileParameter, ParameterParser {
 	}
 
 	@Override
-	public void run(final Context context) {
-	}
+	public void run(final Context context) {}
 
 	@Override
 	public String getShortDescription() {

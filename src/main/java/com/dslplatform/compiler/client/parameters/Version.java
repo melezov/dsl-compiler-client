@@ -17,8 +17,7 @@ public enum Version implements CompileParameter {
 	}
 
 	@Override
-	public void run(final Context context) {
-	}
+	public void run(final Context context) {}
 
 	@Override
 	public String getShortDescription() {
@@ -31,6 +30,6 @@ public enum Version implements CompileParameter {
 				"\n" +
 				"\n" +
 				"Example:\n" +
-				"	1.0.2";
+				"\t1.0.2";
 	}
 }

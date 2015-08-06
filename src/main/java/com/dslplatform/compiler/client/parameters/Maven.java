@@ -46,8 +46,7 @@ public enum Maven implements CompileParameter {
 	}
 
 	@Override
-	public void run(final Context context) {
-	}
+	public void run(final Context context) {}
 
 	@Override
 	public String getShortDescription() {
@@ -63,6 +62,6 @@ public enum Maven implements CompileParameter {
 				"If set, M2 environment parameter will be checked." +
 				"\n" +
 				"Example:\n" +
-				"	C:/apache-maven-2.2.1/bin/mvn.bat";
+				"\tC:/apache-maven-2.2.1/bin/mvn.bat";
 	}
 }

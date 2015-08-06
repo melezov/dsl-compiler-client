@@ -56,8 +56,7 @@ public enum DotNet implements CompileParameter {
 	}
 
 	@Override
-	public void run(final Context context) {
-	}
+	public void run(final Context context) {}
 
 	@Override
 	public String getShortDescription() {
@@ -71,6 +70,6 @@ public enum DotNet implements CompileParameter {
 				"If custom path is required this option can be used to specify it.\n" +
 				"\n" +
 				"Example:\n" +
-				"	/var/user/mono-3.4/dmsc";
+				"\t/var/user/mono-3.4/dmsc";
 	}
 }
