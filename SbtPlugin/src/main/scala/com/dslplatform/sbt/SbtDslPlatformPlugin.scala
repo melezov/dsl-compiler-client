@@ -79,13 +79,13 @@ object SbtDslPlatformPlugin extends AutoPlugin {
   )
 
   private lazy val dslTasks = Seq(
-    dslLibrary in Compile <<= dslLibraryInputTask(Compile),
-    dslLibrary in Test <<= dslLibraryInputTask(Test),
-    dslSource <<= dslSourceTask,
-    dslResource in Compile <<= dslResourceTask(Compile),
-    dslResource in Test <<= dslResourceTask(Test),
-    dslMigrate <<= dslMigrateTask,
-    dslExecute <<= dslExecuteTask
+    dslLibrary in Compile := dslLibraryInputTask(Compile).evaluated,
+    dslLibrary in Test := dslLibraryInputTask(Test).evaluated,
+    dslSource := dslSourceTask.evaluated,
+    dslResource in Compile := dslResourceTask(Compile).evaluated,
+    dslResource in Test := dslResourceTask(Test).evaluated,
+    dslMigrate := dslMigrateTask.evaluated,
+    dslExecute := dslExecuteTask.evaluated
   )
 
   private lazy val dslCompilationSettings = inConfig(DslPlatform)(
@@ -113,7 +113,7 @@ object SbtDslPlatformPlugin extends AutoPlugin {
       packageOptions := dslPackageOptions.value,
       artifactPath in packageBin := artifactPathSetting(artifact in packageBin in DslPlatform).value,
       exportJars := true,
-      exportedProducts := Classpaths.exportProductsTask.value
+      exportedProducts := Classpaths.exportProducts.value
     )
   ) ++ Seq(
     dependencyClasspath in Compile ++= (products in DslPlatform).value.classpath,
@@ -240,10 +240,10 @@ object SbtDslPlatformPlugin extends AutoPlugin {
 
     val fallBackCompiler = {
       val workingDirectoryCompiler = new File("dsl-compiler.exe")
+      val logger = streams.value.log
       if(workingDirectoryCompiler.exists()) {
         workingDirectoryCompiler
       } else {
-        val logger = streams.value.log
         val tempPath = TempPath.getTempRootPath(new DslContext(Some(logger)))
         new File(tempPath, "dsl-compiler.exe")
       }
@@ -276,7 +276,7 @@ object SbtDslPlatformPlugin extends AutoPlugin {
   }
 
   private def dslSourcesForLibrary = Def.task {
-    def generateSource(inChanges: ChangeReport[File], outChanges: ChangeReport[File]): Set[File] = {
+    def generateSource(old: Set[File]): Set[File] = {
       val buffer = new ArrayBuffer[File]()
       buffer ++= Actions.generateSource(
         streams.value.log,
@@ -297,7 +297,7 @@ object SbtDslPlatformPlugin extends AutoPlugin {
 
     val allDslFiles = (dslDslPath.value ** "*.dsl").get :+ createCompilerSettingsFingerprint.value
     val dslSourceCache = target.value / "dsl-source-cache"
-    val cachedGenerator = FileFunction.cached(dslSourceCache)(inStyle = FilesInfo.hash, outStyle = FilesInfo.hash)(generateSource)
+    val cachedGenerator = FileFunction.cached(cacheBaseDirectory = dslSourceCache, inStyle = FilesInfo.hash, outStyle = FilesInfo.hash)(generateSource)
 
     cachedGenerator(allDslFiles.toSet).toSeq
   }
